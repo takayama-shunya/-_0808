@@ -18,9 +18,21 @@
       <tr>
         <td><%= blog.title %></td>
         <td><%= blog.content %></td>
-        <td><%= link_to 'Show', blog %></td>
-        <td><%= link_to 'Edit', edit_blog_path(blog) %></td>
-        <td><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <%= button_to blog_path(blog), method: :get, class: 'btn btn-info' do %>
+            <span>詳細</span>
+          <% end %>
+        </td>
+        <td>
+          <%= button_to edit_blog_path(blog), method: :get, class: 'btn btn-success' do %>
+            <span>編集</span>
+          <% end %>
+        </td>
+        <td>
+          <%= button_to blog_path(blog), method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure?' } do %>
+            <span>削除</span>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>
